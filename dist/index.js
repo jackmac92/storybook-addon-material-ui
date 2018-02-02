@@ -4,15 +4,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _register = require('./register');
-
-Object.defineProperty(exports, 'register', {
-  enumerable: true,
-  get: function get() {
-    return _register.register;
-  }
-});
-
 var _muiTheme = require('./muiTheme');
 
 Object.defineProperty(exports, 'muiTheme', {
