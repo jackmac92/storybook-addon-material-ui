@@ -15,10 +15,6 @@ var _addons2 = _interopRequireDefault(_addons);
 
 var _styles = require('material-ui/styles');
 
-var _palette = require('material-ui/styles/palette');
-
-var _palette2 = _interopRequireDefault(_palette);
-
 var _ = require('./');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
