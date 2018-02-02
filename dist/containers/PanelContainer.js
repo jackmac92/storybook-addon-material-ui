@@ -16,21 +16,11 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _getMuiTheme = require('material-ui/styles/getMuiTheme');
+var _styles = require('material-ui/styles');
 
-var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
+var _palette = require('material-ui/styles/palette');
 
-var _MuiThemeProvider = require('material-ui/styles/MuiThemeProvider');
-
-var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
-
-var _lightBaseTheme = require('material-ui/styles/baseThemes/lightBaseTheme');
-
-var _lightBaseTheme2 = _interopRequireDefault(_lightBaseTheme);
-
-var _darkBaseTheme = require('material-ui/styles/baseThemes/darkBaseTheme');
-
-var _darkBaseTheme2 = _interopRequireDefault(_darkBaseTheme);
+var _palette2 = _interopRequireDefault(_palette);
 
 var _jsBeautify = require('js-beautify');
 
@@ -50,7 +40,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // eslint-disable-line
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import getMuiTheme from 'material-ui/styles/getMuiTheme';
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+// import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+// import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'; // eslint-disable-line
 
 
 var _global = global,
@@ -58,6 +53,13 @@ var _global = global,
     window = _global.window;
 
 var logger = console;
+
+var lightBaseTheme = (0, _styles.createMuiTheme)();
+var darkBaseTheme = (0, _styles.createMuiTheme)({
+    palette: (0, _palette2.default)({
+        type: 'dark'
+    })
+});
 
 var PROGRESS_STATUS = {
     'button-clone': 'soon', // todo: [] button_clone
@@ -108,7 +110,7 @@ var PanelContainer = function (_React$Component) {
         _this.isChannelData = false;
 
         // future: get from state with own theme ind
-        _this.muiTheme = (0, _getMuiTheme2.default)(_lightBaseTheme2.default);
+        _this.muiTheme = lightBaseTheme;
 
         _this.onInitChannel = _this.onInitChannel.bind(_this);
         _this.onDataChannel = _this.onDataChannel.bind(_this);
@@ -310,7 +312,7 @@ var PanelContainer = function (_React$Component) {
         key: 'render',
         value: function render() {
             return this.state.isReady ? _react2.default.createElement(
-                _MuiThemeProvider2.default,
+                _styles.MuiThemeProvider,
                 { muiTheme: this.muiTheme },
                 _react2.default.createElement(_ThemePanel2.default, {
                     themesNameList: this.state.themesNameList,

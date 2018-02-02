@@ -16,13 +16,23 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _getMuiTheme = require('material-ui/styles/getMuiTheme');
+var _styles = require('material-ui/styles');
 
-var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
+var _palette = require('material-ui/styles/palette');
 
-var _MuiThemeProvider = require('material-ui/styles/MuiThemeProvider');
+var _palette2 = _interopRequireDefault(_palette);
 
-var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
+var _purple = require('material-ui/colors/purple');
+
+var _purple2 = _interopRequireDefault(_purple);
+
+var _green = require('material-ui/colors/green');
+
+var _green2 = _interopRequireDefault(_green);
+
+var _red = require('material-ui/colors/red');
+
+var _red2 = _interopRequireDefault(_red);
 
 var _reactSplitPane = require('react-split-pane');
 
@@ -40,7 +50,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // future: add CSS_CLASS
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// import getMuiTheme from 'material-ui/styles/getMuiTheme';
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// future: add CSS_CLASS
 // future: [x] remove ThemeToolbar
 
 
@@ -66,7 +80,7 @@ var MuiTheme = function (_React$Component) {
 
         _this.state = props.initState;
         _this.state.themesAppliedList = props.themesAppliedListInit;
-        _this.state.muiTheme = (0, _getMuiTheme2.default)(props.themesAppliedListInit[props.initState.themeInd]);
+        _this.state.muiTheme = (0, _styles.createMuiTheme)(props.themesAppliedListInit[props.initState.themeInd]);
         _this.state.isMount = false;
         _this.isChannelData = false;
         _this.UpdateList = {};
@@ -155,7 +169,7 @@ var MuiTheme = function (_React$Component) {
         value: function changeTheme(ind) {
             this.needComponentUpdate('ThemeSideBar');
             this.setState({
-                muiTheme: (0, _getMuiTheme2.default)(this.state.themesAppliedList[ind]),
+                muiTheme: (0, _styles.createMuiTheme)(this.state.themesAppliedList[ind]),
                 themeInd: ind
             });
         }
@@ -204,10 +218,21 @@ var MuiTheme = function (_React$Component) {
             var ThemesNameList = this.state.themesAppliedList.map(function (val, ind) {
                 return val.themeName || 'Theme ' + (ind + 1);
             });
-            var muiTheme = (0, _getMuiTheme2.default)(this.props.themeListRender(this.state.themesAppliedList[this.state.themeInd]));
+            var muiTheme = (0, _styles.createMuiTheme)(this.props.themeListRender(this.state.themesAppliedList[this.state.themeInd]));
+            // return (<MuiThemeProvider theme={muiTheme}>
+
+            var theme = (0, _styles.createMuiTheme)({
+                palette: (0, _palette2.default)({
+                    primary: _purple2.default, // Purple and green play nicely together.
+                    accent: _extends({}, _green2.default, {
+                        A400: '#00e677'
+                    }),
+                    error: _red2.default
+                })
+            });
             return _react2.default.createElement(
-                _MuiThemeProvider2.default,
-                { muiTheme: muiTheme },
+                _styles.MuiThemeProvider,
+                { theme: theme },
                 _react2.default.createElement(
                     'div',
                     {

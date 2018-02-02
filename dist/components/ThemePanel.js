@@ -14,25 +14,21 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _MenuItem = require('material-ui/MenuItem');
+var _Menu = require('material-ui/Menu');
 
-var _MenuItem2 = _interopRequireDefault(_MenuItem);
+var _Menu2 = _interopRequireDefault(_Menu);
 
-var _DropDownMenu = require('material-ui/DropDownMenu');
+var _CreateNewFolder = require('material-ui-icons/CreateNewFolder');
 
-var _DropDownMenu2 = _interopRequireDefault(_DropDownMenu);
+var _CreateNewFolder2 = _interopRequireDefault(_CreateNewFolder);
 
-var _createNewFolder = require('material-ui/svg-icons/file/create-new-folder');
+var _FileDownload = require('material-ui-icons/FileDownload');
 
-var _createNewFolder2 = _interopRequireDefault(_createNewFolder);
+var _FileDownload2 = _interopRequireDefault(_FileDownload);
 
-var _fileDownload = require('material-ui/svg-icons/file/file-download');
+var _DeleteForever = require('material-ui-icons/DeleteForever');
 
-var _fileDownload2 = _interopRequireDefault(_fileDownload);
-
-var _deleteForever = require('material-ui/svg-icons/action/delete-forever');
-
-var _deleteForever2 = _interopRequireDefault(_deleteForever);
+var _DeleteForever2 = _interopRequireDefault(_DeleteForever);
 
 var _SvgButton = require('../material-desktop/SvgButton');
 
@@ -89,7 +85,7 @@ var ThemePanel = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (ThemePanel.__proto__ || Object.getPrototypeOf(ThemePanel)).call(this, props));
 
     _this.menuItems = props.themesNameList.map(function (val, ind) {
-      return _react2.default.createElement(_MenuItem2.default, { value: ind, key: val, primaryText: val });
+      return _react2.default.createElement(_Menu.MenuItem, { value: ind, key: val, primaryText: val });
     });
     _this.state = {
       value: props.defautThemeInd,
@@ -124,7 +120,7 @@ var ThemePanel = function (_React$Component) {
             display: 'flex',
             justifyContent: 'space-between',
             flexWrap: 'wrap',
-            backgroundColor: this.context.muiTheme.palette.canvasColor
+            backgroundColor: 'white' /* this.context.muiTheme.palette.canvasColor*/
           }
         },
         _react2.default.createElement(
@@ -138,11 +134,10 @@ var ThemePanel = function (_React$Component) {
             }
           },
           _react2.default.createElement(
-            _DropDownMenu2.default,
+            _Menu2.default,
             {
               value: this.state.value,
               onChange: this.handleChange,
-              iconStyle: { fill: this.context.muiTheme.palette.textColor },
               style: { width: '100%' }
             },
             this.menuItems
@@ -158,21 +153,21 @@ var ThemePanel = function (_React$Component) {
               }
             },
             _react2.default.createElement(_SvgButton2.default, {
-              icon: _react2.default.createElement(_fileDownload2.default, null),
+              icon: _react2.default.createElement(_FileDownload2.default, null),
               tooltip: 'Download Theme',
               tooltipPosition: 'top-right',
               width: 48,
               onClick: this.props.onDnLoadTheme
             }),
             _react2.default.createElement(_SvgButton2.default, {
-              icon: _react2.default.createElement(_createNewFolder2.default, null),
+              icon: _react2.default.createElement(_CreateNewFolder2.default, null),
               tooltip: 'this option is in development...',
               tooltipPosition: 'top-right',
               width: 48,
               onClick: this.props.onCloneTheme
             }),
             _react2.default.createElement(_SvgButton2.default, {
-              icon: _react2.default.createElement(_deleteForever2.default, null),
+              icon: _react2.default.createElement(_DeleteForever2.default, null),
               tooltip: 'this option is in development...',
               tooltipPosition: 'top-right',
               width: 48,

@@ -13,9 +13,9 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Toggle = require('material-ui/Toggle');
+var _Switch = require('material-ui/Switch');
 
-var _Toggle2 = _interopRequireDefault(_Toggle);
+var _Switch2 = _interopRequireDefault(_Switch);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34,7 +34,7 @@ function SclToggle(props) {
     return _react2.default.createElement(
         'div',
         { style: style },
-        _react2.default.createElement(_Toggle2.default, props)
+        _react2.default.createElement(_Switch2.default, props)
     );
 }
 SclToggle.defaultProps = defaultProps;

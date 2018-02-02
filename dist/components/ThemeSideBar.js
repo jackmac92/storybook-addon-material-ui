@@ -28,13 +28,13 @@ var _SvgButton = require('../material-desktop/SvgButton');
 
 var _SvgButton2 = _interopRequireDefault(_SvgButton);
 
-var _contentCopy = require('material-ui/svg-icons/content/content-copy');
+var _ContentCopy = require('material-ui-icons/ContentCopy');
 
-var _contentCopy2 = _interopRequireDefault(_contentCopy);
+var _ContentCopy2 = _interopRequireDefault(_ContentCopy);
 
-var _switchCamera = require('material-ui/svg-icons/image/switch-camera');
+var _SwitchCamera = require('material-ui-icons/SwitchCamera');
 
-var _switchCamera2 = _interopRequireDefault(_switchCamera);
+var _SwitchCamera2 = _interopRequireDefault(_SwitchCamera);
 
 var _ = require('../');
 
@@ -249,14 +249,14 @@ var ThemeSideBar = function (_React$Component) {
                                     }
                                 }),
                                 _react2.default.createElement(_SvgButton2.default, {
-                                    icon: _react2.default.createElement(_contentCopy2.default, null),
+                                    icon: _react2.default.createElement(_ContentCopy2.default, null),
                                     tooltip: 'Copy to clipboard',
                                     width: 48,
                                     onClick: this.onCopy
                                 }),
                                 _react2.default.createElement('div', { style: { width: 4 } }),
                                 _react2.default.createElement(_SvgButton2.default, {
-                                    icon: _react2.default.createElement(_switchCamera2.default, null),
+                                    icon: _react2.default.createElement(_SwitchCamera2.default, null),
                                     tooltip: 'switch style',
                                     width: 48,
                                     onClick: this.onSwitchStyleObj
