@@ -1,7 +1,6 @@
 import React from 'react';
 import addons from '@storybook/addons';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import createPalette from 'material-ui/styles/palette';
 import { EVENT_ID_INIT } from './';
 
 const accent = {
