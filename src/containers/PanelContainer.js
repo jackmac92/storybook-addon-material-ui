@@ -7,19 +7,15 @@ import createPalette from 'material-ui/styles/palette';
 // import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 // import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'; // eslint-disable-line
 import * as beauti from 'js-beautify';
-
+import theTheme from '../theme';
 import { EVENT_ID_INIT, EVENT_ID_DATA } from '../';
 import ThemePanel from '../components/ThemePanel';
 
 const { document, window } = global;
 const logger = console;
 
-const lightBaseTheme = createMuiTheme();
-const darkBaseTheme = createMuiTheme({
-    palette: createPalette({
-        type: 'dark',
-    }),
-});
+const lightBaseTheme = theTheme
+const darkBaseTheme = theTheme
 
 const PROGRESS_STATUS = {
     'button-clone': 'soon', // todo: [] button_clone
